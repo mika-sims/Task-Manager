@@ -28,6 +28,6 @@ def add_category():
         return redirect(url_for("categories"))
     return render_template("add_category.html")
 
-@app.route("/edit_category", medthods=["GET", "POST"])
-def edit_category():
+@app.route("/edit_category/<int:category_id>", medthods=["GET", "POST"])
+def edit_category(category_id):
     return render_template("edit_category.html")
