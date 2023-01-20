@@ -1,5 +1,5 @@
 # Import render_template function for template rendering
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 
 # Import app and db variables from main taskmanager folder
 from taskmanager import app, db
@@ -22,4 +22,7 @@ def categories():
 def add_category():
     if request.method == "POst":
         category = Category(category_name=request.form.get("category_name"))
+        db.session.add(category)
+        db.session.commit()
+        return redirect(url_for("categories"))
     return render_template("add_category.html")
