@@ -20,3 +20,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
 
 # Instance of SQLAlchemy() class
 db = SQLAlchemy(app)
+
+# Import routes file
+from taskmanager import routes
