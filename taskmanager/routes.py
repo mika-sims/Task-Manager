@@ -11,3 +11,8 @@ from taskmanager.models import Category, Task
 @app.route("/")
 def home():
     return render_template("tasks.html")
+
+# App route for categories.html
+@app.route("/categories")
+def categories():
+    return render_template("categories.html")
