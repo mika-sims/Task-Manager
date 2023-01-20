@@ -1,0 +1,8 @@
+# Import OS module
+import os
+
+# Import Flask framework
+from flask import Flask
+
+# Import Flask-SQLAlchemy extension
+from flask_sqlalchemy import SQLAlchemy
