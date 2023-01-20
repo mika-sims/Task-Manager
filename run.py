@@ -5,9 +5,9 @@ import os
 from taskmanager import app
 
 # Run application
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP"),
-        port=os.environ.get("PORT"),
+        port=int(os.environ.get("PORT")),
         debug=os.environ.get("DEBUG")
     )
