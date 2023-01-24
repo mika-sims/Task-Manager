@@ -1,3 +1,5 @@
+import re
+
 # Import OS module
 import os
 
