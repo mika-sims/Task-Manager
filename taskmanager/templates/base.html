@@ -17,21 +17,21 @@
     <header>
         <nav class="light-blue darken-1">
             <div class="nav-wrapper">
-            <a href="{{ url_for('home') }}" class="brand-logo">Task Manager</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fa-solid fa-bars"></i></a>
-            <!-- Desktop navbar -->
-            <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('home') }}">Home</a></li>
-                <li><a href="">New Task</a></li>
-                <li><a href="{{ url_for('categories') }}">Categories</a></li>
-            </ul>
+                <a href="{{ url_for('home') }}" class="brand-logo">Task Manager</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fa-solid fa-bars"></i></a>
+                <!-- Desktop navbar -->
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('add_tasks') }}">New Task</a></li>
+                    <li><a href="{{ url_for('categories') }}">Categories</a></li>
+                </ul>
             </div>
         </nav>
 
         <!-- Mobile sidenav -->
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="">New Task</a></li>
+            <li><a href="{{ url_for('add_tasks') }}">New Task</a></li>
             <li><a href="{{ url_for('categories') }}">Categories</a></li>
         </ul>
     </header>
@@ -58,4 +58,5 @@
     <!--  Link to Fontawesome CDN -->
     <script src="https://kit.fontawesome.com/f779526fd1.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
