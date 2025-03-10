@@ -16,16 +16,18 @@ if os.path.exists("env.py"):
 # Instance of Flask() class
 app = Flask(__name__)
 
-# Environment variables for app configuration
-if os.environ.get("DEVELOPMENT") == "True":
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")  # local
-else:
-    uri = os.environ.get("DATABASE_URL")
-    if uri.startswith("postgres://"):
-        uri = uri.replace("postgres://", "postgresql://", 1)
-    app.config["SQLALCHEMY_DATABASE_URI"] = uri  # heroku
+# Get database URL from environment variables
+uri = os.getenv("DATABASE_URL")
 
-# Instance of SQLAlchemy() class
+# Ensure the URI exists before using it
+if not uri:
+    raise ValueError("DATABASE_URL is not set. Please configure it in Render.")
+
+# Replace old Heroku-style database URLs
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
+
+app.config["SQLALCHEMY_DATABASE_URI"] = uri
 db = SQLAlchemy(app)
 
 # Import routes file
